@@ -9,6 +9,9 @@ let cow;
 let star;
 let cx, cy;
 let bgc;
+let value = 0; 
+let purpOn = false;
+let r = random
 
 
 function preload(){
@@ -20,6 +23,7 @@ function preload(){
 }
 
 function setup(){
+  console.log("click on B, P and X key" );
   createCanvas(800, 800);
   background(255);
   ufo = loadImage('ufo.png');
@@ -29,12 +33,14 @@ function setup(){
   cy = height / 2;
   textFont(f);
  
+ 
 }
 
 function draw(){
   let imageWidth = 200;
   let imageHeight = 200;
   
+
   // ufo
   image(ufo, cx, cy, imageWidth, imageHeight);
 
@@ -55,11 +61,24 @@ function draw(){
 
   image(gleeby, mouseX, mouseY, 100, 100);
 
+   fill(value, 40); 
+   rect(width/3, height/3, 100, 100);       
+
   
 }
 
 // Handle key presses
 function keyPressed() {
+  if ( key == 'm' || key == 'M' ) { 
+    // example of toggle logic 
+    if (value == 0) { 
+      value = 255;
+    } else { 
+      value = 0;
+    }
+  }
+
+  
   switch (key) {
     case 'a':
       console.log("a left");  // left
@@ -99,3 +118,11 @@ function keyPressed() {
 
 
 }
+
+
+
+
+
+
+
+
